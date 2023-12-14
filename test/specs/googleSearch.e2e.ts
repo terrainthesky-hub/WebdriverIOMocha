@@ -5,6 +5,7 @@ describe('I go to google home page and use the search bar', () => {
     it('I use the search bar with the word Cats', async() => {
         await browser.url(constants.URLS.google);
         await googlePages.googleSearchBar.setValue('Cats');
+        // Enter or Return key
         await browser.keys("\uE007");
 
     });
@@ -24,6 +25,5 @@ describe('I go to google home page to check for links', () => {
                 ? console.log(`link text:::`, elementText)
                 : console.log(`No text found for element ${i}`);
         }
-            
     });
 });

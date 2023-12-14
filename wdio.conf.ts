@@ -31,7 +31,8 @@ export const config: Options.Testrunner = {
     // will be called from there.
     //
     specs: [
-        './test/specs/**/*.ts'
+        './test/specs/*.ts'
+        // ToDo: define location for spec files here
     ],
     // Patterns to exclude.
     exclude: [
@@ -60,8 +61,11 @@ export const config: Options.Testrunner = {
     // https://saucelabs.com/platform/platform-configurator
     //
     capabilities: [{
-        browserName: 'chrome'
-    }],
+        browserName: 'chrome',
+        'goog:chromeOptions': {
+          args: ['--headless', '--disable-gpu', '--no-sandbox', '--window-size=1280,800']
+        }
+      }],
 
     //
     // ===================
@@ -70,7 +74,7 @@ export const config: Options.Testrunner = {
     // Define all options that are relevant for the WebdriverIO instance here
     //
     // Level of logging verbosity: trace | debug | info | warn | error | silent
-    logLevel: 'error',
+    logLevel: 'debug',
     //
     // Set specific log levels per logger
     // loggers:
@@ -110,12 +114,19 @@ export const config: Options.Testrunner = {
     // Services take over a specific job you don't want to take care of. They enhance
     // your test setup with almost no effort. Unlike plugins, they don't add new
     // commands. Instead, they hook themselves up into the test process.
-    services: [  ['chromedriver', {
-        logFileName: 'wdio-chromedriver.log', // default
-        outputDir: 'driver-logs', // overwrites the config.outputDir
-        args: ['--silent']
-    }]],
-    //
+    services: [
+        ['docker', {
+            // Docker options
+            image: 'selenium/standalone-chrome',
+            healthCheck: 'http://localhost:4444',
+            options: {
+                p: ['4444:4444'],
+                // Add other Docker options here
+            },
+            // Add other wdio-docker-service configurations here
+        }],
+    ],
+
     // Framework you want to run your specs with.
     // The following are supported: Mocha, Jasmine, and Cucumber
     // see also: https://webdriver.io/docs/frameworks
@@ -137,7 +148,7 @@ export const config: Options.Testrunner = {
     // Test reporter for stdout.
     // The only one supported by default is 'dot'
     // see also: https://webdriver.io/docs/dot-reporter
-    reporters: ['spec',['allure', {outputDir: 'allure-results'}]],
+    reporters: [['allure', {outputDir: 'allure-results'}]],
 
     // Options to be passed to Mocha.
     // See the full list at http://mochajs.org/
