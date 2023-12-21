@@ -14,7 +14,7 @@ jobs:
     - uses: actions/checkout@v2
 
     - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag webdriverio-mocha:latest
+      run: docker build . --file Dockerfile --tag webdriverio-mocha
 
     - name: Run the Docker image
-      run: docker run -p 4444:4444 webdriverio-mocha:latest
+      run: docker run -p 4444:4444 webdriverio-mocha
