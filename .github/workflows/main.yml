@@ -16,18 +16,28 @@ jobs:
     - name: Build the Docker image
       run: docker build . --file Dockerfile --tag webdriverio-mocha
 
-    - name: Run the Docker image
-      run: docker run -v ${PWD}/allure-results:/allure-results -p 4444:4444 webdriverio-mocha
-
     # - name: Run the Docker image
-    #   run: docker run -p 4444:4444 webdriverio-mocha
-    
+      # run: docker run -v ${PWD}/allure-results:/allure-results -p 4444:4444 webdriverio-mocha
+
+    - name: Run the Docker image
+      run: docker run -p 4444:4444 webdriverio-mocha
+
+    - name: Upload Allure results
+      uses: actions/upload-artifact@v2
+      with:
+        name: allure-results
+        path: ./allure-results
+  
+    - name: Download Allure results
+      uses: actions/download-artifact@v2
+      with:
+          name: allure-results
+
     - name: Install Allure CLI
       run: npm install -g allure-commandline
 
     - name: Generate Allure Report
       run: npm run allure:report
-  
   
     - name: List Allure Results Files
       run: ls -l ./allure-results
