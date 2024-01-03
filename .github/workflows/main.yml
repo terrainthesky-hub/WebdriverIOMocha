@@ -22,9 +22,6 @@ jobs:
     - name: Generate Allure Report
       run: npm run allure:report
 
-    - name: Generate Allure Report
-      run: npm run allure:report
-
     - name: Deploy to GitHub Pages
       uses: peaceiris/actions-gh-pages@v3
       with:
