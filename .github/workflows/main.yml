@@ -17,7 +17,7 @@ jobs:
       run: docker build . --file Dockerfile --tag webdriverio-mocha
 
     - name: Run the Docker image
-      run: docker run -v ${PWD}/allure-results:/path/to/allure-results -p 4444:4444 webdriverio-mocha
+      run: docker run -v ${PWD}/allure-results:./allure-results -p 4444:4444 webdriverio-mocha
 
     # - name: Run the Docker image
     #   run: docker run -p 4444:4444 webdriverio-mocha
