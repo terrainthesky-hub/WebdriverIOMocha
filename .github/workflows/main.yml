@@ -25,8 +25,8 @@ jobs:
     # - name: Generate Allure Report
     #   run: npm run allure:report
   
-    - name: List Allure Report Files
-      run: ls -l ./allure-report
+    # - name: List Allure Report Files
+    #   run: ls -l ./allure-report
 
     - name: Copy Allure results from Docker
       run: docker cp webdriverio-mocha:./allure-results ./allure-results
