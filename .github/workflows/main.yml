@@ -19,6 +19,9 @@ jobs:
     - name: Run the Docker image
       run: docker run -p 4444:4444 webdriverio-mocha
     
+    - name: Install Allure CLI
+      run: npm install -g allure-commandline
+
     - name: Generate Allure Report
       run: npm run allure:report
 
