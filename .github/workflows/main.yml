@@ -22,18 +22,18 @@ jobs:
     - name: Install Allure CLI
       run: npm install -g allure-commandline
 
-    # - name: Generate Allure Report
-    #   run: npm run allure:report
-  
-    # - name: List Allure Report Files
-    #   run: ls -l ./allure-report
-
-    - name: Copy Allure results from Docker
-      run: docker cp webdriverio-mocha:./allure-results ./allure-results
-    
     - name: Generate Allure Report
-      run: allure generate ./allure-results --clean --output ./allure-report
-      working-directory: ./allure-results
+      run: npm run allure:report
+  
+    - name: List Allure Report Files
+      run: ls -l ./allure-report
+
+    # - name: Copy Allure results from Docker
+    #   run: docker cp webdriverio-mocha:./allure-results ./allure-results
+    
+    # - name: Generate Allure Report
+    #   run: allure generate ./allure-results --clean --output ./allure-report
+    #   working-directory: ./allure-results
   
     - name: Deploy to GitHub Pages
       uses: peaceiris/actions-gh-pages@v3
