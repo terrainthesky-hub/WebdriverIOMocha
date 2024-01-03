@@ -10,6 +10,7 @@ RUN apt-get update && apt-get install -y google-chrome-stable
 # Install other dependencies
 RUN apt-get install -y libnss3 libgconf-2-4 libfontconfig1
 
+
 # Set the working directory in the container
 WORKDIR /usr/src/app
 
