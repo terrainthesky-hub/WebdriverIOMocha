@@ -36,11 +36,11 @@ jobs:
     - name: Generate Allure Report
       run: npm run allure:report
   
-    - name: List Allure Results Files
-      run: ls -l ./allure-results
+    # - name: List Allure Results Files
+    #   run: ls -l ./allure-results
 
-    - name: List Allure Report Files
-      run: ls -l ./allure-report
+    # - name: List Allure Report Files
+    #   run: ls -l ./allure-report
 
     - name: Deploy to GitHub Pages
       uses: peaceiris/actions-gh-pages@v3

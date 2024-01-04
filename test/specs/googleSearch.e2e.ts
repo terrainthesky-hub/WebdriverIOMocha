@@ -11,7 +11,7 @@ describe('I go to google home page and use the search bar', () => {
     });
     it('I validate the search results page contains the word Cat', async() => {
         await googlePages.googleSearchResults('Cat').waitForDisplayed();
-        expect(await googlePages.googleSearchResults('Cat').getText()).toEqual('Cat');
+        expect(await googlePages.googleSearchResults('Cat').getText()).toEqual('Dog');
     });
 });
 
