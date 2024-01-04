@@ -25,3 +25,5 @@ EXPOSE 4444
 
 # Run WebdriverIO tests when the container launches
 CMD ["npx", "wdio", "wdio.conf.ts"]
+
+COPY ./allure-results ./allure-results
