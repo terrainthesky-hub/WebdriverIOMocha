@@ -1,1 +1,1 @@
-{"total":0,"items":[]}
+{"total":3,"items":[{"uid":"ed9b6f7ae063de657300658c8c74b144","name":"I go to google home page and use the search bar","statistic":{"failed":0,"broken":0,"skipped":0,"passed":2,"unknown":0,"total":2}},{"uid":"1e569911a0dd59e08749749da60112c5","name":"My Login application","statistic":{"failed":0,"broken":0,"skipped":0,"passed":1,"unknown":0,"total":1}},{"uid":"4bbd7869b4d530916edef4f8104451fe","name":"I go to google home page to check for links","statistic":{"failed":0,"broken":0,"skipped":0,"passed":1,"unknown":0,"total":1}}]}
